@@ -1,6 +1,7 @@
 """
 Author: Nick St. Pierre
-Filename: mobile.py
+Filename: motor.py
+Description: a motor class uses simple forward backward and stop methods for each servo motor.
 """
 
 import pygame, time
@@ -15,16 +16,17 @@ class Motor(Servo):
     def forward(self):
         "Function that drives the servos forward"
         self.servo.max()
-        pause(0.05)
+        time.sleep(0.05)
     
     def backward(self):
         "Function that drives the servos backward"
         self.servo.min()
-        pause(0.05)
-        
-    def pause(time):
-        "This will utilize the detach() method to reduce jitter of the servo"
-        time.sleep(time)
+        time.sleep(0.05)
+    
+    def stop(self):
+        "Stops motor movement"
+        self.servo.detach()
+    
         
         
         
